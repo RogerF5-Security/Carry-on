@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101716">
+  <meta name="description" content="Prepara tu mochila y maleta con un contador visual de peso. Añade artículos, ajusta límites y guarda tu lista de equipaje sin registrarte.">
+  <title>Carry-on · Viaja ligero</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23101716'/%3E%3Cpath d='M15 12V8h10v4M12 13h16v20H12z' fill='none' stroke='%23c8f488' stroke-width='3'/%3E%3C/svg%3E">
+  <style>
+    :root{color-scheme:dark;--bg:#101716;--panel:#192220;--line:#34413b;--muted:#acb9b0;--ink:#f0f4ec;--lime:#c8f488;--orange:#ffbd83;--red:#ff9690;--radius:22px}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button,a,input,select{touch-action:manipulation}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}a{color:inherit}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--lime);outline-offset:4px}button{border:0}h1,h2,h3,p{margin:0}h1{font-size:clamp(2rem,4vw,3.1rem);line-height:1.1;font-weight:650;letter-spacing:-.055em}h2{font-size:1.2rem;letter-spacing:-.025em}small,.meta{font-size:.875rem;color:var(--muted)}.muted{color:var(--muted)}.mono{font-variant-numeric:tabular-nums}.shell{max-width:1360px;margin:auto;padding:0 32px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:23px 0;border-bottom:1px solid var(--line)}.brand{font-weight:800;font-size:1.35rem;letter-spacing:-.06em;display:flex;gap:10px;align-items:center;text-decoration:none}.brand-mark{background:var(--lime);color:var(--bg);border-radius:10px;width:34px;height:34px;display:grid;place-items:center;transform:rotate(-8deg)}.top-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.local{font-size:.875rem;color:var(--muted)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 15px;border-radius:11px;background:#29352f;color:var(--ink);min-height:44px;text-decoration:none}.btn:hover{background:#38463e}.btn.primary{background:var(--lime);color:#192415;font-weight:700}.btn.primary:hover{background:#d9ffa6}.btn.outline{border:1px solid var(--line);background:transparent}.btn.danger{color:var(--red)}.intro{display:flex;align-items:end;justify-content:space-between;gap:24px;padding:34px 0 25px}.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--lime);font-weight:700;margin-bottom:10px}.intro p{color:var(--muted);margin-top:12px;max-width:650px}.units{display:flex;background:#22302a;border:1px solid var(--line);padding:4px;border-radius:12px;gap:4px}.units button{border-radius:8px;padding:8px 17px;background:transparent;color:var(--muted);min-height:42px}.units button[aria-pressed=true]{background:var(--lime);color:#172012;font-weight:750}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}.bags{display:grid;grid-template-columns:1fr 1fr;gap:20px}.bag{--accent:var(--lime);background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;position:relative}.bag[data-bag=backpack]{--accent:var(--orange)}.bag.over{--accent:var(--red)}.bag-top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:20px 22px 0}.bag-top h2{font-size:1.15rem}.tag{border:1px solid var(--line);border-radius:30px;padding:3px 9px;font-size:.75rem;letter-spacing:.03em;color:var(--accent)}.visual{height:230px;position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#36433755,transparent 67%)}.visual svg{height:217px;width:180px;overflow:visible}.fill{transition:y .5s,height .5s;fill:var(--accent);opacity:.78}.outline-stroke{stroke:var(--accent);stroke-width:2.5;fill:none}.visual-number{position:absolute;right:22px;top:22px;color:var(--accent);font-size:2rem;letter-spacing:-.05em;font-weight:650}.visual-number small{display:block;font-size:.75rem;text-align:right;font-weight:400;letter-spacing:0}.bag-body{padding:0 22px 21px}.weight-line{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}.current{font-size:2rem;font-weight:650;letter-spacing:-.04em}.weight-line .muted{font-size:.875rem}.bar{height:7px;background:#354037;border-radius:8px;overflow:hidden;margin:10px 0}.bar>span{display:block;height:100%;width:0;background:var(--accent);border-radius:8px;transition:width .4s}.remaining{color:var(--accent);font-size:.875rem;font-weight:600}.breakdown{display:flex;justify-content:space-between;gap:8px;margin-top:13px;font-size:.875rem;color:var(--muted)}.bag details{margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}summary{cursor:pointer;font-size:.875rem;color:var(--muted)}.config-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.field{display:grid;gap:6px;min-width:0}label{font-size:.875rem;color:#dce5dc}input,select{width:100%;background:#111a16;border:1px solid #435247;color:var(--ink);border-radius:10px;padding:10px 12px;min-height:44px}input::placeholder{color:#96a397}input:invalid:not(:placeholder-shown){border-color:#d9857e}.config-note{font-size:.75rem;color:var(--muted);margin-top:9px}.side{padding:24px;background:#202d25;border:1px solid #455640;border-radius:var(--radius)}.side>p{font-size:.875rem;color:var(--muted);margin:6px 0 22px}.side form{display:grid;gap:15px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.side .primary{width:100%;margin-top:5px}.form-note{font-size:.875rem;color:var(--muted)}.side-foot{margin-top:22px;padding-top:18px;border-top:1px solid #455640;font-size:.875rem;color:var(--muted)}.summary-strip{display:flex;gap:22px;align-items:center;justify-content:space-between;margin:20px 0;padding:15px 20px;background:#1b2420;border:1px solid var(--line);border-radius:15px}.summary-strip strong{font-weight:650}.summary-strip span{font-size:.875rem}.list-panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);overflow:hidden}.list-head{padding:21px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.filters{display:flex;gap:6px;flex-wrap:wrap}.filters button{background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;min-height:40px;font-size:.875rem}.filters button[aria-pressed=true]{color:var(--lime);background:#35412c}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.875rem}th{text-align:left;color:var(--muted);font-weight:400;padding:12px 16px;background:#131d18;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}td{padding:15px 16px;border-bottom:1px solid #2a372e;vertical-align:middle}th:first-child,td:first-child{padding-left:22px}td .item-name{display:block;font-weight:600;overflow-wrap:anywhere}td small{font-size:.75rem}td select{padding:6px;min-width:105px;font-size:.875rem}.actions{display:flex;gap:5px}.icon-btn{width:36px;min-height:40px;background:transparent;color:var(--muted);border-radius:8px;display:grid;place-items:center}.icon-btn:hover{background:#354137;color:var(--ink)}.empty{padding:36px 24px 42px;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--ink);margin-bottom:7px;font-weight:500}.empty p{font-size:.875rem;max-width:370px;margin:auto}.empty svg{color:var(--lime);margin-bottom:13px}.utility{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:22px 0;flex-wrap:wrap}.utility-buttons{display:flex;gap:8px;flex-wrap:wrap}.utility .btn{font-size:.875rem}.info{border-top:1px solid var(--line);padding:18px 0;color:var(--muted);font-size:.875rem}.info summary{color:var(--ink)}.info p{margin-top:10px;max-width:850px}footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 0 30px;color:var(--muted);font-size:.875rem}footer a{text-decoration:none}footer a:hover{text-decoration:underline}.notice{background:#473326;border:1px solid #997855;padding:12px 16px;border-radius:12px;margin-top:18px;color:#ffddb4;font-size:.875rem}.notice:empty{display:none}#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--lime);color:#142010;box-shadow:0 8px 40px #0008;padding:12px 22px;border-radius:12px;max-width:90vw;z-index:5}#toast:empty{display:none}dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:22px;padding:28px;max-width:440px;width:calc(100% - 32px)}dialog::backdrop{background:#0009}dialog p{margin:12px 0 22px;color:var(--muted)}dialog .row{display:flex;justify-content:end}.skip{position:absolute;left:12px;top:-80px;background:var(--lime);color:#101716;padding:10px;z-index:10}.skip:focus{top:12px}[hidden]{display:none!important}
+    @media(min-width:1150px){.side{position:sticky;top:24px}}
+    @media(max-width:1100px){.workspace{grid-template-columns:minmax(0,1fr) 300px;gap:16px}.bags{gap:14px}.shell{padding:0 22px}.bag-top,.bag-body{padding-left:16px;padding-right:16px}.tag{display:none}.visual-number{right:13px}.side{padding:20px}}
+    @media(max-width:900px){.workspace{grid-template-columns:1fr;gap:0}.workspace>div{display:contents}.bags{order:1}.summary-strip{order:2}.side{order:3;margin-bottom:20px}.list-panel{order:4}.side form{grid-template-columns:1fr 1fr}.side form>.field:first-child{grid-column:1/-1}.side .side-foot{margin-top:15px}.visual{height:215px}.side form>.form-note{align-self:center}.side .primary{margin-top:0}.side>p{margin-bottom:16px}}
+    @media(max-width:540px){.shell{padding:0 16px}.topbar{padding:16px 0}.local{display:none}.intro{align-items:start;flex-direction:column;padding:27px 0 22px;gap:16px}.intro p{font-size:.875rem}.units{align-self:end;margin-top:-4px}.bags{gap:10px}.bag-top{padding:16px 12px 0}.bag-top h2{font-size:1rem}.bag-top .meta{font-size:.75rem}.bag-body{padding:0 12px 16px}.visual{height:190px;padding-top:20px}.visual svg{width:130px;height:170px}.visual-number{font-size:1.3rem;top:5px;right:12px}.visual-number small{font-size:.75rem}.current{font-size:1.65rem}.breakdown{display:block;font-size:.75rem}.breakdown span{display:block}.remaining{font-size:.8rem}.config-grid{grid-template-columns:1fr}.side form{display:grid;grid-template-columns:1fr}.side form>.field:first-child{grid-column:auto}.summary-strip{padding:13px;gap:12px;align-items:start}.summary-strip span{font-size:.8rem}.summary-strip .summary-title{max-width:160px}.list-head{padding:18px 14px}.utility{align-items:start;flex-direction:column}th,td{padding:12px 10px}th:first-child,td:first-child{padding-left:14px}td select{min-width:98px}footer{font-size:.8rem}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+    @media print{body{background:#fff;color:#111}.shell{max-width:none;padding:0}.top-actions,.units,.side,.filters,.utility,.info,footer,.actions,dialog,.bag details,#toast,.skip,.notice{display:none!important}.workspace{display:block}.bag,.list-panel,.summary-strip{background:#fff;border:1px solid #aaa;break-inside:avoid}.bag{--accent:#345a26!important}.muted,small,.meta,.breakdown,.remaining{color:#333}.visual{height:155px}.visual svg{height:150px}.intro{padding:15px 0}.intro p{color:#333}th{background:#eee;color:#333}.list-panel{margin-top:16px}td select{appearance:none;background:white;color:#111;border:0}.bag-top{padding-top:10px}.topbar{padding:10px 0}.brand-mark{background:#ddd}.visual-number{color:#333}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#item-name">Saltar a añadir artículo</a>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Carry-on, inicio"><span class="brand-mark" aria-hidden="true">↗</span>carry-on<span style="color:var(--lime)">.</span></a>
+    <div class="top-actions"><span class="local" id="save-state">Guardado en este navegador</span><button class="btn outline" id="print">Imprimir lista ↗</button></div>
+  </header>
+  <div id="storage-warning" class="notice" role="alert"></div>
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <div><div class="eyebrow">Menos peso. Más viaje.</div><h1 id="title">Todo listo para despegar.</h1><p>Arma tu equipaje, cuenta cada gramo y deja espacio para lo que viene.</p></div>
+      <div class="units" role="group" aria-label="Unidad de peso"><button data-unit="lb" aria-pressed="true">lb</button><button data-unit="kg" aria-pressed="false">kg</button></div>
+    </section>
+    <div class="workspace">
+      <div>
+        <section class="bags" aria-label="Peso por equipaje" id="bags"></section>
+        <div class="summary-strip" role="status" aria-live="polite"><span class="summary-title" id="summary">Tu equipaje empieza aquí.</span><span class="mono" id="total">0 artículos · 0 lb</span></div>
+        <section class="list-panel" aria-labelledby="list-title">
+          <div class="list-head"><h2 id="list-title">Lo que llevas</h2><div class="filters" role="group" aria-label="Filtrar equipaje"><button data-filter="all" aria-pressed="true">Todo</button><button data-filter="suitcase" aria-pressed="false">Maleta</button><button data-filter="backpack" aria-pressed="false">Mochila</button></div></div>
+          <div class="empty" id="empty"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 5V3h8v2M5 6h14v15H5zM9 10v7m6-7v7"/></svg><strong>Tu próxima aventura, pieza por pieza.</strong><p>Primero registra cuánto pesa tu equipaje vacío. Después añade tu primer artículo.</p></div>
+          <div class="table-wrap" id="table-wrap" hidden><table><thead><tr><th scope="col">Artículo</th><th scope="col">Equipaje</th><th scope="col">Peso total</th><th scope="col"><span class="meta">Acciones</span></th></tr></thead><tbody id="items"></tbody></table></div>
+        </section>
+      </div>
+      <aside class="side" aria-labelledby="form-title">
+        <h2 id="form-title">Un lugar para cada cosa.</h2><p>Pesa el artículo y agrégalo a tu equipaje.</p>
+        <form id="item-form">
+          <div class="field"><label for="item-name">¿Qué vas a llevar?</label><input id="item-name" name="name" placeholder="Ej. Pantalón azul de lona" maxlength="100" required></div>
+          <div class="row"><div class="field"><label for="item-bag">Va en</label><select id="item-bag"><option value="suitcase">Maleta</option><option value="backpack">Mochila</option></select></div><div class="field"><label for="item-category">Categoría</label><select id="item-category"><option>Ropa</option><option>Calzado</option><option>Tecnología</option><option>Aseo</option><option>Documentos</option><option>Salud</option><option>Otros</option></select></div></div>
+          <div class="row"><div class="field"><label for="item-weight" id="weight-label">Peso por unidad (lb)</label><input id="item-weight" type="number" min="0.001" max="200" step="any" placeholder="0.80" required inputmode="decimal"></div><div class="field"><label for="item-quantity">Cantidad</label><input id="item-quantity" type="number" min="1" max="999" step="1" value="1" required inputmode="numeric"></div></div>
+          <p class="form-note" id="subtotal">El peso de cada unidad se multiplica por la cantidad.</p>
+          <button class="btn primary" type="submit" id="submit-item">＋ Añadir al equipaje</button><button class="btn outline" id="cancel-edit" type="button" hidden>Cancelar edición</button>
+        </form>
+        <div class="side-foot">El peso total incluye el equipaje vacío. El dibujo representa <strong>peso, no volumen</strong>: comprueba también las medidas y el espacio real.</div>
+      </aside>
+    </div>
+    <div class="utility"><span class="meta">Sin cuenta. Sin enviar tu lista a un servidor.</span><div class="utility-buttons"><button class="btn outline" id="export">↓ Guardar copia</button><button class="btn outline" id="import">↑ Abrir copia</button><button class="btn outline danger" id="reset">Vaciar lista</button><input type="file" id="import-file" accept="application/json,.json" hidden></div></div>
+    <details class="info"><summary>Antes de ir al aeropuerto</summary><p>Los límites iniciales de 20 lb y 10 lb son ejemplos editables, no una franquicia confirmada. Comprueba peso, medidas, piezas incluidas y artículos restringidos con tu aerolínea. Registra el peso vacío real de cada pieza y pesa el conjunto antes de salir. Esta calculadora no reemplaza una báscula.</p><p>Documentos: pasaporte, pases de abordar, alojamiento y seguro confirmado para destino y fechas. Revisa también traslados, acceso al alojamiento y conexión móvil. Los requisitos dependen de tu viaje.</p><p>Tu lista se guarda únicamente en este navegador y dispositivo. Borrar sus datos puede eliminarla; guarda una copia para conservarla o moverla a otro dispositivo.</p></details>
+  </main>
+  <footer><span>carry-on. <span class="muted">Hecho para viajar más ligero.</span></span><a href="https://github.com/RogerF5-Security/Carry-on" target="_blank" rel="noopener noreferrer">Un proyecto de Roger F5 · GitHub ↗</a></footer>
+</div>
+<dialog id="confirm-dialog" aria-labelledby="confirm-title"><h2 id="confirm-title">¿Vaciar tu lista?</h2><p id="confirm-message">Se quitarán todos los artículos. Se conservarán los límites y pesos vacíos. Puedes guardar una copia antes.</p><div class="row"><button class="btn outline" id="confirm-no">Cancelar</button><button class="btn primary" id="confirm-yes">Vaciar lista</button></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+/* Single-file app. All weights are stored in grams; display units never change totals. */
+(() => {
+  'use strict';
+  const KEY='carry-on.v1', LB=453.59237, CATEGORIES=['Ropa','Calzado','Tecnología','Aseo','Documentos','Salud','Otros'];
+  const $=id=>document.getElementById(id), bagNames={suitcase:'Maleta',backpack:'Mochila'};
+  const defaults=()=>({version:1,unit:'lb',bags:{suitcase:{tare:null,limit:20*LB},backpack:{tare:null,limit:10*LB}},items:[]});
+  let state=defaults(),filter='all',editing=null,toastTimer,confirmAction=null,storageBlocked=false;
+  const factor=()=>state.unit==='lb'?LB:1000;
+  const fmt=g=>new Intl.NumberFormat('es',{maximumFractionDigits:2}).format(g/factor());
+  const weight=g=>`${fmt(g)} ${state.unit}`;
+  const inputValue=g=>Number((g/factor()).toFixed(6));
+  const id=()=>globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  function clean(raw){
+    if(!raw||raw.version!==1||!['lb','kg'].includes(raw.unit)||!Array.isArray(raw.items)||raw.items.length>3000)throw Error('Formato de copia no válido.');
+    const out=defaults();out.unit=raw.unit;
+    for(const name of Object.keys(bagNames)){
+      const b=raw.bags?.[name];
+      if(!b||!Number.isFinite(b.limit)||b.limit<=0||b.limit>200000||(b.tare!==null&&(!Number.isFinite(b.tare)||b.tare<0||b.tare>200000)))throw Error('Pesos de equipaje no válidos.');
+      out.bags[name]={limit:b.limit,tare:b.tare};
+    }
+    const seen=new Set();
+    out.items=raw.items.map(x=>{
+      if(!x||typeof x.id!=='string'||x.id.length>100||seen.has(x.id)||typeof x.name!=='string'||!x.name.trim()||x.name.length>100||!Object.hasOwn(bagNames,x.bag)||!CATEGORIES.includes(x.category)||!Number.isFinite(x.grams)||x.grams<=0||x.grams>200000||!Number.isInteger(x.quantity)||x.quantity<1||x.quantity>999)throw Error('Hay artículos no válidos en la copia.');
+      seen.add(x.id);return{id:x.id,name:x.name.trim(),bag:x.bag,category:x.category,grams:x.grams,quantity:x.quantity};
+    });return out;
+  }
+  try{const raw=localStorage.getItem(KEY);if(raw)state=clean(JSON.parse(raw));}catch(e){storageBlocked=true;$('storage-warning').textContent='No pudimos cargar el guardado local. No lo sobrescribiremos. Puedes usar la app y guardar una copia; abrir una copia válida o vaciar la lista permite iniciar un guardado nuevo.';$('save-state').textContent='Guardado local no disponible';}
+  function save(){
+    if(storageBlocked)return;
+    try{localStorage.setItem(KEY,JSON.stringify(state));$('save-state').textContent='Guardado en este navegador';$('storage-warning').textContent='';}
+    catch{$('storage-warning').textContent='El navegador no permite guardar los cambios. Usa «Guardar copia» antes de cerrar esta página.';$('save-state').textContent='Cambios sin guardar';}
+  }
+  function toast(message){$('toast').textContent=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').textContent='',4000);}
+  function ask(title,message,button,action){$('confirm-title').textContent=title;$('confirm-message').textContent=message;$('confirm-yes').textContent=button;confirmAction=action;$('confirm-dialog').showModal();$('confirm-no').focus();}
+  $('confirm-no').onclick=()=>$('confirm-dialog').close();
+  $('confirm-yes').onclick=()=>{$('confirm-dialog').close();confirmAction?.();confirmAction=null;};
+  function totals(bag){const contents=state.items.filter(x=>x.bag===bag).reduce((s,x)=>s+x.grams*x.quantity,0);return{contents,total:contents+(state.bags[bag].tare??0)};}
+  function makeBags(){
+    $('bags').innerHTML=Object.keys(bagNames).map(name=>{
+      const suitcase=name==='suitcase';
+      const path=suitcase?'M49 51 Q39 51 39 66 V195 Q39 209 53 209 H127 Q141 209 141 195 V66 Q141 51 131 51 Z':'M45 84 Q45 47 90 47 Q135 47 135 84 V194 Q135 208 121 208 H59 Q45 208 45 194 Z';
+      return `<article class="bag" data-bag="${name}" aria-labelledby="${name}-title"><div class="bag-top"><div><h2 id="${name}-title">${bagNames[name]}</h2><span class="meta">${suitcase?'Equipaje de mano':'Artículo personal'}</span></div><span class="tag">${suitcase?'01':'02'}</span></div><div class="visual"><svg viewBox="0 0 180 240" role="img" aria-label="Peso de ${bagNames[name]}" id="${name}-svg"><defs><clipPath id="${name}-clip"><path d="${path}"/></clipPath></defs><ellipse cx="90" cy="229" rx="61" ry="5" fill="#000" opacity=".2"/>${suitcase?'<path d="M69 50V19Q69 14 74 14H106Q111 14 111 19V50" class="outline-stroke"/><path d="M56 211v11m68-11v11" stroke="#80927f" stroke-width="10" stroke-linecap="round"/>':'<path d="M74 48V34Q90 23 106 34V48M44 84Q27 85 30 144l13 27M136 84q17 1 14 60l-13 27" class="outline-stroke"/>'}<path d="${path}" fill="#24342a"/><rect id="${name}-fill" class="fill" x="25" y="209" width="130" height="0" clip-path="url(#${name}-clip)"/><path d="${path}" class="outline-stroke"/>${suitcase?'<path d="M61 76v107m19-107v107m20-107v107m19-107v107" stroke="#102319" stroke-width="3" opacity=".5"/><path d="M141 99h7v38h-7" class="outline-stroke"/>':'<path d="M62 129h56v55H62zM64 140h52M57 93q33-17 66 0" stroke="#102319" fill="none" stroke-width="3" opacity=".6"/>'}</svg><div class="visual-number mono"><span id="${name}-percent">0%</span><small>del límite</small></div></div><div class="bag-body"><div class="weight-line mono"><span class="current" id="${name}-weight">0</span><span class="muted" id="${name}-limit"></span></div><div class="bar" role="progressbar" aria-label="Límite de peso de ${bagNames[name]}" aria-valuemin="0" aria-valuemax="100" id="${name}-bar"><span></span></div><div class="remaining" id="${name}-remaining"></div><div class="breakdown"><span id="${name}-tare-text"></span><span id="${name}-contents"></span></div><details><summary>Ajustar peso vacío y límite</summary><div class="config-grid"><div class="field"><label for="${name}-tare">Peso vacío (<span class="unit-label">lb</span>)</label><input id="${name}-tare" type="number" min="0" step="any" placeholder="Sin pesar" inputmode="decimal" data-bag-config="${name}" data-field="tare"></div><div class="field"><label for="${name}-max">Límite (<span class="unit-label">lb</span>)</label><input id="${name}-max" type="number" min="0.001" step="any" required inputmode="decimal" data-bag-config="${name}" data-field="limit"></div></div><p class="config-note">Usa el límite de tu boleto y el peso real de tu equipaje vacío.</p></details></div></article>`;
+    }).join('');
+    document.querySelectorAll('[data-bag-config]').forEach(el=>el.addEventListener('change',()=>{
+      const field=el.dataset.field,num=el.value===''&&field==='tare'?null:Number(el.value)*factor();
+      if((num!==null&&(!Number.isFinite(num)||num<0||num>200000))||(field==='limit'&&(num===null||num<=0))){el.setCustomValidity('Ingresa un peso válido; el límite debe ser mayor que cero.');el.reportValidity();return;}
+      el.setCustomValidity('');state.bags[el.dataset.bagConfig][field]=num;save();render();
+    }));
+    document.querySelectorAll('[data-bag-config]').forEach(el=>el.addEventListener('input',()=>el.setCustomValidity('')));
+  }
+  function configValues(){for(const name of Object.keys(bagNames)){$(`${name}-tare`).value=state.bags[name].tare===null?'':inputValue(state.bags[name].tare);$(`${name}-max`).value=inputValue(state.bags[name].limit);}document.querySelectorAll('.unit-label').forEach(x=>x.textContent=state.unit);}
+  function render(){
+    let combined=0,over=false;
+    for(const name of Object.keys(bagNames)){
+      const b=state.bags[name],t=totals(name),pct=t.total/b.limit*100,excess=t.total-b.limit;combined+=t.total;over||=excess>0.001;
+      document.querySelector(`[data-bag="${name}"]`).classList.toggle('over',excess>0.001);
+      $(`${name}-percent`).textContent=`${new Intl.NumberFormat('es',{maximumFractionDigits:1}).format(pct)}%`;
+      $(`${name}-weight`).textContent=fmt(t.total);$(`${name}-limit`).textContent=`/ ${weight(b.limit)}`;
+      const ratio=Math.min(1,pct/100),fill=$(`${name}-fill`),height=ratio*158;
+      fill.setAttribute('y',209-height);fill.setAttribute('height',height);
+      const bar=$(`${name}-bar`);bar.firstElementChild.style.width=`${ratio*100}%`;bar.setAttribute('aria-valuenow',Math.min(100,pct).toFixed(1));bar.setAttribute('aria-valuetext',`${weight(t.total)} de ${weight(b.limit)}${excess>0?', límite superado':''}`);
+      $(`${name}-svg`).setAttribute('aria-label',`${bagNames[name]}: ${weight(t.total)} de ${weight(b.limit)}`);
+      $(`${name}-remaining`).textContent=excess>0.001?`Exceso: ${weight(excess)}`:`Disponible: ${weight(Math.max(0,-excess))}`;
+      $(`${name}-tare-text`).textContent=b.tare===null?'Vacío: falta pesarlo':`Vacío: ${weight(b.tare)}`;
+      $(`${name}-contents`).textContent=`Artículos: ${weight(t.contents)}`;
+    }
+    const unknown=Object.values(state.bags).some(b=>b.tare===null);
+    $('summary').textContent=over?'Hay equipaje que supera su límite.':unknown?'Falta registrar el peso vacío.':'Todo dentro de tus límites de peso.';
+    $('total').textContent=`${state.items.reduce((s,x)=>s+x.quantity,0)} artículos · ${weight(combined)}${unknown?'*':''}`;
+    document.querySelectorAll('[data-unit]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.unit===state.unit));
+    document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.filter===filter));
+    $('weight-label').textContent=`Peso por unidad (${state.unit})`;
+    $('item-weight').max=200000/factor();
+    renderItems();subtotal();
+  }
+  function cell(text){const td=document.createElement('td');td.textContent=text;return td;}
+  function renderItems(){
+    const list=state.items.filter(x=>filter==='all'||x.bag===filter),body=$('items');body.replaceChildren();
+    $('empty').hidden=!!list.length;$('table-wrap').hidden=!list.length;
+    $('empty').querySelector('strong').textContent=state.items.length?'Todavía no hay artículos en esta pieza.':'Tu próxima aventura, pieza por pieza.';
+    $('empty').querySelector('p').textContent=state.items.length?'Añade un artículo o muévelo desde el otro equipaje.':'Primero registra cuánto pesa tu equipaje vacío. Después añade tu primer artículo.';
+    for(const item of list){
+      const tr=document.createElement('tr'),name=cell(''),strong=document.createElement('span'),meta=document.createElement('small');strong.className='item-name';strong.textContent=item.name;meta.textContent=`${item.category} · ${item.quantity} × ${weight(item.grams)}`;name.append(strong,meta);
+      const bag=cell(''),select=document.createElement('select');select.setAttribute('aria-label',`Equipaje de ${item.name}`);
+      for(const [v,n] of Object.entries(bagNames)){const o=document.createElement('option');o.value=v;o.textContent=n;select.append(o);}select.value=item.bag;
+      select.onchange=()=>{item.bag=select.value;if(editing===item.id)$('item-bag').value=item.bag;save();render();toast(`Artículo movido a ${bagNames[item.bag].toLowerCase()}.`);};bag.append(select);
+      const total=cell(weight(item.grams*item.quantity));total.className='mono';
+      const actions=cell(''),buttons=document.createElement('div');buttons.className='actions';
+      for(const [symbol,label,fn] of [['✎','Editar',()=>edit(item.id)],['×','Eliminar',()=>ask('¿Quitar este artículo?',item.name,'Eliminar',()=>{state.items=state.items.filter(x=>x.id!==item.id);if(editing===item.id)cancelEdit();save();render();toast('Artículo eliminado.');})]]){const btn=document.createElement('button');btn.className='icon-btn';btn.type='button';btn.textContent=symbol;btn.setAttribute('aria-label',`${label} ${item.name}`);btn.title=label;btn.onclick=fn;buttons.append(btn);}actions.append(buttons);tr.append(name,bag,total,actions);body.append(tr);
+    }
+  }
+  function subtotal(){const n=Number($('item-weight').value),q=Number($('item-quantity').value);$('subtotal').textContent=n>0&&q>0?`Este artículo suma ${weight(n*factor()*q)} al equipaje.`:'El peso de cada unidad se multiplica por la cantidad.';}
+  $('item-weight').addEventListener('input',subtotal);$('item-quantity').addEventListener('input',subtotal);$('item-name').addEventListener('input',()=>$('item-name').setCustomValidity(''));
+  function cancelEdit(){editing=null;$('item-form').reset();$('item-name').setCustomValidity('');$('form-title').textContent='Un lugar para cada cosa.';$('submit-item').textContent='＋ Añadir al equipaje';$('cancel-edit').hidden=true;subtotal();}
+  $('cancel-edit').onclick=cancelEdit;
+  function edit(itemId){const x=state.items.find(x=>x.id===itemId);editing=itemId;$('item-name').value=x.name;$('item-bag').value=x.bag;$('item-category').value=x.category;$('item-weight').value=inputValue(x.grams);$('item-quantity').value=x.quantity;$('form-title').textContent='Editar artículo';$('submit-item').textContent='Guardar cambios';$('cancel-edit').hidden=false;subtotal();$('item-name').focus();}
+  $('item-form').onsubmit=e=>{
+    e.preventDefault();const name=$('item-name').value.trim();if(!name){$('item-name').setCustomValidity('Escribe el nombre del artículo.');$('item-name').reportValidity();return;}
+    const item={id:editing||id(),name,bag:$('item-bag').value,category:$('item-category').value,grams:Number($('item-weight').value)*factor(),quantity:Number($('item-quantity').value)};
+    if(!Number.isFinite(item.grams)||item.grams<=0||item.grams>200000||!Number.isInteger(item.quantity)||item.quantity<1||item.quantity>999)return;
+    if(!editing&&state.items.length>=3000){toast('La lista admite hasta 3,000 registros.');return;}
+    const wasEditing=!!editing;
+    if(editing){const idx=state.items.findIndex(x=>x.id===editing);state.items[idx]=item;}else state.items.push(item);
+    filter='all';cancelEdit();$('item-bag').value=item.bag;save();render();toast(wasEditing?'Cambios guardados.':'Artículo añadido.');$('item-name').focus();
+  };
+  document.querySelectorAll('[data-unit]').forEach(btn=>btn.onclick=()=>{
+    if(btn.dataset.unit===state.unit)return;
+    const oldFactor=factor(),draft=$('item-weight').value,grams=Number(draft)*oldFactor;state.unit=btn.dataset.unit;
+    if(draft!==''&&Number.isFinite(grams))$('item-weight').value=inputValue(grams);
+    configValues();save();render();
+  });
+  document.querySelectorAll('[data-filter]').forEach(btn=>btn.onclick=()=>{filter=btn.dataset.filter;render();});
+  $('export').onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`carry-on-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Copia preparada para descargar.');};
+  $('import').onclick=()=>$('import-file').click();
+  $('import-file').onchange=async e=>{const file=e.target.files[0];e.target.value='';if(!file)return;try{if(file.size>2000000)throw Error('La copia excede 2 MB.');const next=clean(JSON.parse(await file.text()));ask('¿Abrir esta copia?','Reemplazará la lista y los ajustes actuales. Guarda una copia de tu lista antes si quieres conservarla.','Abrir copia',()=>{state=next;storageBlocked=false;filter='all';cancelEdit();configValues();save();render();toast('Copia cargada.');});}catch(err){toast(err instanceof SyntaxError?'El archivo no contiene JSON válido.':err.message);}};
+  $('reset').onclick=()=>ask('¿Vaciar tu lista?','Se quitarán todos los artículos. Se conservarán los límites y pesos vacíos. Guarda una copia si quieres conservar tu lista.','Vaciar lista',()=>{state.items=[];storageBlocked=false;cancelEdit();filter='all';save();render();toast('Lista vaciada.');});
+  $('print').onclick=()=>{filter='all';render();window.print();};
+  // Cross-tab changes are applied only while the user is not editing a field.
+  window.addEventListener('storage',e=>{if(e.key===KEY&&e.newValue){$('storage-warning').textContent='La lista cambió en otra pestaña. Guarda una copia de tus cambios antes de recargar para ver la otra versión.';storageBlocked=true;}});
+  makeBags();configValues();render();
+})();
+</script>
+</body>
+</html>
