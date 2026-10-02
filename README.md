@@ -4,6 +4,8 @@ Un organizador visual de equipaje: mochila y maleta que se llenan según el peso
 
 **Web:** https://rogerf5-security.github.io/Carry-on/
 
+**Checklist EKO 2026:** https://rogerf5-security.github.io/Carry-on/eko-2026/ — lista precargada por maleta, mochila y tareas previas; permite marcar y añadir artículos. Lee en la misma sesión los artículos registrados con peso en la calculadora principal. Guarda su progreso aparte en `carry-on.eko-2026.v1` y permite exportar/importar JSON.
+
 ## Uso
 
 1. Abre «Ajustar peso vacío y límite» en cada pieza y registra su peso real y el límite de tu boleto.
@@ -32,5 +34,7 @@ GitHub Pages publica desde la raíz de `main`. No requiere compilación ni crede
 ### Comprobaciones
 
 La prueba de navegador `tests/smoke.cjs` requiere Playwright instalado en el entorno de desarrollo (no en la web). Con el servidor activo: `node tests/smoke.cjs`. Cubre cálculos, conversión, persistencia, edición, traslado, exceso, importación y vista móvil.
+
+`node tests/eko-checklist.cjs` comprueba la lista precargada, nuevas entradas, persistencia, artículos de la calculadora, vista móvil y texto seguro.
 
 Un proyecto de [Roger F5](https://github.com/RogerF5-Security).
